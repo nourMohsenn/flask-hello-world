@@ -3,6 +3,7 @@ from deep_translator import GoogleTranslator
 
 app = Flask(__name__)
 
+
 @app.route('/translate', methods=['POST'])
 def translate_text():
     data = request.get_json()
@@ -20,5 +21,6 @@ def translate_text():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
-# Required for Vercel to detect the Flask app
-handler = app
+
+if __name__ == '__main__':
+    app.run(debug=True)
