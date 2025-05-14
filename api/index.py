@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 from deep_translator import GoogleTranslator
 
 app = Flask(__name__)
-
+CORS(app)  # Enable CORS for all origins
 
 @app.route('/translate', methods=['POST'])
 def translate_text():
